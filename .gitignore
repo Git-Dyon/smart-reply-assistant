@@ -1,0 +1,22 @@
+# Ambiente Virtual (O mais importante!)
+venv/
+env/
+.venv/
+
+# Python (Arquivos temporários de execução)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Streamlit (Configurações locais)
+.streamlit/
+
+# VS Code (Configurações do seu editor)
+.vscode/
+
+# Sensível (Chaves de API e variáveis de ambiente)
+.env
+
+# Logs
+*.log
