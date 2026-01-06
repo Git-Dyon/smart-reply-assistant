@@ -89,10 +89,51 @@ Aqui está a seção de **Resolução de Problemas** formatada para você adicio
 
 Se você encontrar dificuldades ao rodar o projeto, verifique as soluções abaixo:
 
-| Problema | Causa Provável | Solução |
-| --- | --- | --- |
-| `O termo 'source' não é reconhecido` | Tentativa de usar comando Linux no Windows PowerShell. | Use `.\venv\Scripts\activate` para ativar o ambiente. |
-| `Erro: PSSecurityException` | Política de execução do Windows bloqueando scripts. | Rode `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process` no terminal. |
-| `AttributeError: streamlit has no attribute 'copy_button'` | Versão do Streamlit no `venv` é inferior a 1.22.0. | Com o venv ativo, rode `python -m pip install --upgrade streamlit`. |
-| `Erro ao conectar com Ollama` | O servidor local do Ollama não está ativo ou o modelo não foi baixado. | Certifique-se de que o ícone do Ollama aparece na bandeja do sistema e que você rodou `ollama pull llama3.2`. |
-| `Erro ao formatar JSON` | A IA retornou texto explicativo fora do bloco JSON esperado. | Refine o `prompts.py` ou tente gerar novamente a resposta (o sistema possui tratamento de erro via `try-except`). |
+Para o seu arquivo **README.md**, uma seção de "Solução de Problemas" (ou *Troubleshooting*) é essencial para ajudar outros desenvolvedores (ou você mesmo no futuro) a resolver gargalos comuns rapidamente.
+
+Aqui está a estrutura pronta para copiar e colar:
+
+---
+
+## 🛠️ Solução de Problemas (Troubleshooting)
+
+Se algo não funcionar como esperado, verifique estes pontos comuns:
+
+### 💻 Erros de Terminal e Ambiente
+
+* **Comando `source` não funciona:** * **Por que ocorre?** Você está usando comandos de Linux no PowerShell do Windows.
+* **Solução:** Utilize `.\venv\Scripts\activate`.
+
+
+* **Erro de Permissão (`PSSecurityException`):** * **Por que ocorre?** O Windows bloqueia a execução de scripts por segurança.
+* **Solução:** No terminal, execute:
+`Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process`.
+
+
+
+---
+
+### 📦 Erros de Bibliotecas (Python/Streamlit)
+
+* **Erro: `module 'streamlit' has no attribute 'copy_button'`:** * **Por que ocorre?** A versão do Streamlit dentro do seu `venv` está desatualizada (precisa ser > 1.22).
+* **Solução:** Com o ambiente ativo, force a atualização:
+`python -m pip install --upgrade streamlit`.
+
+
+
+---
+
+### 🧠 Erros de IA e Conexão
+
+* **Falha ao conectar com o Ollama:** * **Por que ocorre?** O servidor do Ollama não está rodando ou o modelo não foi baixado.
+* **Solução:** Verifique se o ícone do Ollama está na bandeja do sistema e se você executou `ollama pull llama3.2`.
+
+
+* **Erro ao formatar JSON (Resposta Estranha):** * **Por que ocorre?** A IA pode ter enviado texto explicativo antes do código.
+* **Solução:** Clique em "Gerar Sugestões" novamente. O sistema possui um mecanismo de *fallback* para tratar esses casos.
+
+
+
+---
+
+
