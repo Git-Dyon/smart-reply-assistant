@@ -17,7 +17,7 @@ python -m venv venv
 
 
 2. **Ativação do Ambiente (PowerShell):**
-*Caso ocorra erro de permissão, execute:* Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+*Caso ocorra erro de permissão, execute:* Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 *Ative o venv:*
 ```powershell
 .\venv\Scripts\activate
